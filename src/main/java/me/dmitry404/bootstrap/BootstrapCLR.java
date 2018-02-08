@@ -7,8 +7,6 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 import reactor.core.publisher.Flux;
 
-import java.util.UUID;
-
 @Component
 public class BootstrapCLR implements CommandLineRunner {
   private final MovieRepository movieRepository;
@@ -23,7 +21,7 @@ public class BootstrapCLR implements CommandLineRunner {
     movieRepository.deleteAll()
         .thenMany(
             Flux.just("The Shawshank Redemption", "The Godfather", "The Godfather: Part II", "The Dark Knight ", "12 Angry Men")
-                .map(title -> new Movie(title, UUID.randomUUID().toString()))
+                .map(Movie::new)
                 .flatMap(movieRepository::save))
         .subscribe(null, null, () -> movieRepository.findAll().subscribe(System.out::println));
   }
