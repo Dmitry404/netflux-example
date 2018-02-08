@@ -38,7 +38,7 @@ public class QuoteGeneratedServiceImpl implements QuoteGeneratedService {
         (BiFunction<Integer, SynchronousSink<Quote>, Integer>) (index, sink) -> {
           Quote updatedQuote = updateQuote(prices.get(index));
           sink.next(updatedQuote);
-          return ++index & prices.size();
+          return ++index % prices.size();
         })
         .zipWith(Flux.interval(period))
         .map(Tuple2::getT1)
