@@ -11,7 +11,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Movie {
-    private String id;
-    @NonNull
-    private String title;
+  private String id;
+  @NonNull
+  private String title;
 }

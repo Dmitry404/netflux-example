@@ -5,7 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
 public class NetfluxExampleApplication {
-    public static void main(String[] args) {
-        SpringApplication.run(NetfluxExampleApplication.class, args);
-    }
+  public static void main(String[] args) {
+    SpringApplication.run(NetfluxExampleApplication.class, args);
+  }
 }
